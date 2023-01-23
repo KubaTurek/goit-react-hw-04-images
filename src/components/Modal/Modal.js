@@ -1,19 +1,28 @@
 import css from './Modal.module.css';
-import PropTypes from 'prop-types';
+import { useImagesContext } from 'components/context';
 
-const Modal = ({ url, onClose }) => {
+const Modal = () => {
+  const { largeImageUrl, setuplargeImageUrl } = useImagesContext();
+
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      setuplargeImageUrl('');
+    }
+  });
+
+  const hideGallery = event => {
+    if (event.target.nodeName === 'DIV') {
+      setuplargeImageUrl('');
+    }
+  };
+
   return (
-    <div className={css.overlay} onClick={onClose}>
+    <div className={css.overlay} onClick={hideGallery}>
       <div className={css.modal}>
-        <img className={css.image} src={url} alt="" />
+        <img className={css.image} src={largeImageUrl} alt="" />
       </div>
     </div>
   );
-};
-
-Modal.propTypes = {
-  url: PropTypes.string,
-  onClose: PropTypes.func,
 };
 
 export default Modal;

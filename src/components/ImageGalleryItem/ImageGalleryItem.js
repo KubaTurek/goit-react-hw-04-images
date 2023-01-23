@@ -1,7 +1,13 @@
 import css from './ImageGalleryItem.module.css';
-import PropTypes from 'prop-types';
+import { useImagesContext } from 'components/context';
 
-const ImageGalleryItem = ({ images, handleClick }) => {
+const ImageGalleryItem = () => {
+  const { images, setuplargeImageUrl } = useImagesContext();
+
+  const showGallery = url => {
+    setuplargeImageUrl(url);
+  };
+
   return images.map(image => {
     return (
       <li className={css.gallery__item} key={image.id}>
@@ -10,23 +16,11 @@ const ImageGalleryItem = ({ images, handleClick }) => {
           alt={image.tags}
           data-large={image.largeImageURL}
           className={css.gallery__image}
-          onClick={() => handleClick(image.largeImageURL)}
+          onClick={() => showGallery(image.largeImageURL)}
         />
       </li>
     );
   });
-};
-
-ImageGalleryItem.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      webformatURL: PropTypes.string,
-      tags: PropTypes.string,
-      largeImageURL: PropTypes.string,
-    })
-  ),
-  handleClick: PropTypes.func,
 };
 
 export default ImageGalleryItem;
