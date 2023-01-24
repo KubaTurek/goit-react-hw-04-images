@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const ImagesContext = createContext();
 
@@ -61,4 +62,8 @@ export const ImagesPrivider = ({ children }) => {
       {children}
     </ImagesContext.Provider>
   );
+};
+
+ImagesPrivider.propTypes = {
+  children: PropTypes.node,
 };

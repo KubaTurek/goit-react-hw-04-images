@@ -1,5 +1,5 @@
 import css from './ImageGalleryItem.module.css';
-import { useImagesContext } from 'components/context';
+import { useImagesContext } from 'ImagesContext/ImagesContext';
 
 const ImageGalleryItem = () => {
   const { images, setuplargeImageUrl } = useImagesContext();

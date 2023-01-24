@@ -1,5 +1,5 @@
 import css from './Modal.module.css';
-import { useImagesContext } from 'components/context';
+import { useImagesContext } from 'ImagesContext/ImagesContext';
 
 const Modal = () => {
   const { largeImageUrl, setuplargeImageUrl } = useImagesContext();
