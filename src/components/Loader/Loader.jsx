@@ -1,6 +1,6 @@
 import { Watch } from 'react-loader-spinner';
 import css from './Loader.module.css';
-import { useImagesContext } from '../../ImagesContext/ImagesContext';
+import { useImagesContext } from '../../Context/ImagesContext';
 
 const Loader = () => {
   const { isLoading } = useImagesContext();

@@ -1,6 +1,6 @@
 import css from './Button.module.css';
-import { useImagesContext } from 'ImagesContext/ImagesContext';
-import { fetchApi } from 'components/functions/fetchApi';
+import { useImagesContext } from 'Context/ImagesContext';
+import { fetchApi } from 'api/fetchApi';
 
 const Button = () => {
   const {

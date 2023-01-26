@@ -12,6 +12,5 @@ export const fetchApi = async (searchedWord, page) => {
     const response = await axios.get(newUrl);
     return response.data.hits;
   } catch (error) {
-  } finally {
-  }
+  } 
 };

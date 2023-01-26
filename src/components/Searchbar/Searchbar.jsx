@@ -1,6 +1,6 @@
 import css from './Searchbar.module.css';
-import { useImagesContext } from 'ImagesContext/ImagesContext';
-import { fetchApi } from 'components/functions/fetchApi';
+import { useImagesContext } from 'Context/ImagesContext';
+import { fetchApi } from 'api/fetchApi';
 
 const Searchbar = () => {
   const { getImagesbySearch, storedImages, setPageFunction, changeIsLoading } =

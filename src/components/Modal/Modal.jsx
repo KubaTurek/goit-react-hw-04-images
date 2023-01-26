@@ -1,5 +1,5 @@
 import css from './Modal.module.css';
-import { useImagesContext } from 'ImagesContext/ImagesContext';
+import { useImagesContext } from 'Context/ImagesContext';
 
 const Modal = () => {
   const { largeImageUrl, setuplargeImageUrl } = useImagesContext();
@@ -10,18 +10,17 @@ const Modal = () => {
     }
   });
 
-  const hideGallery = event => {
-    if (event.target.nodeName === 'DIV') {
-      setuplargeImageUrl('');
-    }
+  const hideGallery = () => {
+    setuplargeImageUrl('');
   };
 
   return (
-    <div className={css.overlay} onClick={hideGallery}>
+    <>
+      <div className={css.overlay} onClick={hideGallery}></div>
       <div className={css.modal}>
         <img className={css.image} src={largeImageUrl} alt="" />
       </div>
-    </div>
+    </>
   );
 };
 
