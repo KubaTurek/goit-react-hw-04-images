@@ -12,8 +12,7 @@ const App = () => {
   return (
     <div className={css.app}>
       <Searchbar />
-      {images && <ImageGallery />}
-
+      {images.length > 1 && <ImageGallery />}
       {images.length && loadMore === true && <Button />}
       {isLoading && <Loader />}
       {largeImageUrl && <Modal />}

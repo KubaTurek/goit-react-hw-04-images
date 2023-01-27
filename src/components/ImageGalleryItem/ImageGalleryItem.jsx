@@ -8,7 +8,7 @@ const ImageGalleryItem = ({ image }) => {
     setuplargeImageUrl(url);
   };
   return (
-    <li key={image.id} className={css.gallery__item}>
+    <li className={css.gallery__item}>
       <img
         src={image.webformatURL}
         alt={image.tags}

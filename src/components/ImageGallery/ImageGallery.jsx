@@ -8,10 +8,8 @@ const ImageGallery = () => {
   return (
     <ul className={css.gallery}>
       {images.map(picture => {
-
-        return (<ImageGalleryItem image={picture} />);
+        return <ImageGalleryItem image={picture} key={picture.id}/>;
       })}
-      
     </ul>
   );
 };

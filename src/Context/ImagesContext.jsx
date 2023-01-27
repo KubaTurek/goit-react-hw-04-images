@@ -5,7 +5,7 @@ export const ImagesContext = createContext();
 
 export const useImagesContext = () => useContext(ImagesContext);
 
-export const ImagesPrivider = ({ children }) => {
+export const ImagesProvider = ({ children }) => {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState('1');
   const [searchedWord, setsearchedWord] = useState();
@@ -44,12 +44,6 @@ export const ImagesPrivider = ({ children }) => {
   return (
     <ImagesContext.Provider
       value={{
-        images,
-        page,
-        searchedWord,
-        isLoading,
-        largeImageUrl,
-        loadMore,
         storedImages,
         getImagesbySearch,
         setPageFunction,
@@ -57,6 +51,12 @@ export const ImagesPrivider = ({ children }) => {
         changeIsLoading,
         changeLoadMore,
         loadMoreImages,
+        page,
+        searchedWord,
+        isLoading,
+        largeImageUrl,
+        loadMore,
+        images,
       }}
     >
       {children}
@@ -64,6 +64,26 @@ export const ImagesPrivider = ({ children }) => {
   );
 };
 
-ImagesPrivider.propTypes = {
+ImagesProvider.propTypes = {
   children: PropTypes.node,
+};
+
+ImagesContext.Provider.propTypes = {
+  storedImages: PropTypes.func,
+  getImagesbySearch: PropTypes.func,
+  setPageFunction: PropTypes.func,
+  setuplargeImageUrl: PropTypes.func,
+  changeIsLoading: PropTypes.func,
+  changeLoadMore: PropTypes.func,
+  loadMoreImages: PropTypes.func,
+  page: PropTypes.number,
+  searchedWord: PropTypes.string,
+  isLoading: PropTypes.bool,
+  largeImageUrl: PropTypes.string,
+  loadMore: PropTypes.bool,
+  images: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    )
+  ),
 };
