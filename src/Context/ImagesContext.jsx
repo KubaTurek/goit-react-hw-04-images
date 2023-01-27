@@ -69,21 +69,23 @@ ImagesProvider.propTypes = {
 };
 
 ImagesContext.Provider.propTypes = {
-  storedImages: PropTypes.func,
-  getImagesbySearch: PropTypes.func,
-  setPageFunction: PropTypes.func,
-  setuplargeImageUrl: PropTypes.func,
-  changeIsLoading: PropTypes.func,
-  changeLoadMore: PropTypes.func,
-  loadMoreImages: PropTypes.func,
-  page: PropTypes.number,
-  searchedWord: PropTypes.string,
-  isLoading: PropTypes.bool,
-  largeImageUrl: PropTypes.string,
-  loadMore: PropTypes.bool,
-  images: PropTypes.arrayOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    )
-  ),
+  value: PropTypes.objectOf({
+    storedImages: PropTypes.func,
+    getImagesbySearch: PropTypes.func,
+    setPageFunction: PropTypes.func,
+    setuplargeImageUrl: PropTypes.func,
+    changeIsLoading: PropTypes.func,
+    changeLoadMore: PropTypes.func,
+    loadMoreImages: PropTypes.func,
+    page: PropTypes.number,
+    searchedWord: PropTypes.string,
+    isLoading: PropTypes.bool,
+    largeImageUrl: PropTypes.string,
+    loadMore: PropTypes.bool,
+    images: PropTypes.arrayOf(
+      PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      )
+    ),
+  }),
 };
